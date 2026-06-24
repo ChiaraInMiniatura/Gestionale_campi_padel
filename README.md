@@ -1,4 +1,4 @@
-# Pinea Padel — Gestionale
+# Campi Padel — Gestionale
 
 Applicazione web per la gestione interna di un centro sportivo con campi da padel.  
 Progetto sviluppato come esercizio pratico full stack con PHP OOP, MySQL e Bootstrap 5.
