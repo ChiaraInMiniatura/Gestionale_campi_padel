@@ -52,8 +52,8 @@ gestionale_padel/
 ├── index.php               # Homepage pubblica
 ├── prenota.php             # Pagina prenotazione (visiva)
 ├── lezioni.php             # Pagina lezioni
-├── header_dashboard.php    # Header area autenticata
-└── footer_dashboard.php    # Footer area autenticata
+├── header_dashboard.php    # Header 
+└── footer_dashboard.php    # Footer  
 ```
 
 ---
@@ -70,7 +70,7 @@ gestionale_padel/
 
 | Statistiche | Modifica cliente |
 |---|---|
-| ![Statistiche](screenshots/statistiche1.png) | ![Modifica cliente](screenshots/modifica_cliente.png) |
+| ![Statistiche](screenshots/statistiche2.png) | ![Modifica cliente](screenshots/modifica_cliente.png) |
 
 ---
 
