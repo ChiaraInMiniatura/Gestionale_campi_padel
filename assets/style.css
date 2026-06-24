@@ -1,0 +1,616 @@
+/* ================================================================
+   GESTIONALE CENTRO PADEL — Foglio di stile unico
+   Contiene gli stili del gestionale interno E della parte pubblica.
+   Va incluso DOPO bootstrap.min.css, mai prima.
+   ================================================================ */
+
+
+/* ============================================
+   VARIABILI GLOBALI (colori tema verde/bianco)
+   ============================================ */
+:root {
+    --verde-primario: #1b4332;
+    --verde-scuro: #14342a;
+    --verde-chiaro: #e8f0eb;
+    --verde-medio: #2d6a4f;
+    --bianco: #ffffff;
+    --sidebar-width: 250px;
+    --sidebar-width-collapsed: 72px;
+}
+
+body {
+    background-color: var(--bianco);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ============================================
+   GLOBALE - Pulsanti, tabelle, link, form
+   ============================================ */
+.btn-primary {
+    background-color: var(--verde-primario);
+    border-color: var(--verde-primario);
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--verde-scuro);
+    border-color: var(--verde-scuro);
+}
+
+.btn-outline-primary {
+    color: var(--verde-primario);
+    border-color: var(--verde-primario);
+}
+.btn-outline-primary:hover {
+    background-color: var(--verde-primario);
+    border-color: var(--verde-primario);
+}
+
+.table thead th {
+    background-color: var(--verde-chiaro);
+    color: var(--verde-scuro);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--verde-medio);
+    box-shadow: 0 0 0 0.25rem rgba(45, 106, 79, 0.25);
+}
+
+a {
+    color: var(--verde-medio);
+}
+a:hover {
+    color: var(--verde-scuro);
+}
+
+
+/* ============================================
+   LOGIN INTERNO (login.php nella radice)
+   ============================================ */
+.login-wrapper {
+    min-height: 100vh;
+    background-color: var(--verde-primario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-card {
+    border: none;
+    border-radius: 10px;
+}
+.login-card .card-title {
+    color: var(--verde-primario);
+}
+
+
+/* ============================================
+   SIDEBAR (pages/sidebar.php)
+   ============================================ */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    min-height: 100vh;
+    background: var(--verde-primario);
+    display: flex;
+    flex-direction: column;
+    transition: width 0.25s ease;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.sidebar.collapsed {
+    width: var(--sidebar-width-collapsed);
+}
+
+.sidebar-brand {
+    padding: 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.sidebar-brand .logo-text {
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0;
+}
+.sidebar.collapsed .sidebar-brand {
+    text-align: center;
+    padding: 16px 8px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+    flex: 1;
+}
+.sidebar-link {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 11px 18px;
+    margin: 2px 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.sidebar-link i {
+    width: 18px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.sidebar-link:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+}
+.sidebar-link.active {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    border-left: 3px solid #fff;
+    padding-left: 15px;
+}
+.sidebar.collapsed .sidebar-link {
+    justify-content: center;
+    padding: 11px;
+    margin: 2px 6px;
+}
+.sidebar.collapsed .sidebar-link.active {
+    padding-left: 11px;
+    border-left: none;
+    border-top: 2px solid #fff;
+}
+.sidebar-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 10px 18px;
+}
+
+.profile-section {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding: 14px;
+}
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--verde-primario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+.profile-info {
+    overflow: hidden;
+}
+
+.toggle-btn {
+    position: absolute;
+    right: -13px;
+    top: 24px;
+    background: #fff;
+    color: var(--verde-primario);
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    border: 2px solid var(--verde-primario);
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+}
+.sidebar.collapsed .toggle-btn {
+    transform: rotate(180deg);
+}
+.sidebar.collapsed .hide-on-collapse {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 28px;
+    min-width: 0;
+    background: var(--bianco);
+}
+
+.hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 30;
+    background: var(--verde-primario);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+}
+
+.hamburger-btn.sidebar-aperta {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9;
+}
+.sidebar-overlay.visibile {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -100%;
+        transition: left 0.25s ease;
+        height: 100vh;
+    }
+    .sidebar.mobile-open {
+        left: 0;
+    }
+    .dashboard-content {
+        padding: 18px 14px;
+        padding-top: 70px;
+    }
+    .-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .toggle-btn {
+        display: none;
+    }
+}
+
+
+/* ============================================
+   DASHBOARD CLIENTI (pages/dashboard.php)
+   ============================================ */
+.riga-cliccabile { cursor: pointer; }
+.riga-cliccabile:hover { background-color: var(--verde-chiaro) !important; }
+
+.badge-si { background-color: var(--verde-medio) !important; color: #fff; }
+.badge-no { background-color: #b00020 !important; color: #fff; }
+
+.certificato-scaduto {
+    color: #b00020 !important;
+    font-weight: bold;
+}
+
+.colonna-id { display: none; }
+
+@media (max-width: 767px) {
+    .colonna-extra { display: none; }
+    #tabella-clienti {
+        width: 100%;
+        table-layout: fixed;
+    }
+    #tabella-clienti td,
+    #tabella-clienti th {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 13px;
+        padding: 6px 4px;
+    }
+}
+
+@media (min-width: 768px) {
+    .colonna-id { display: table-cell; }
+}
+
+
+/* ============================================
+   CALENDARIO - griglia visiva (pages/calendario.php)
+   ============================================ */
+.griglia-calendario {
+    display: grid;
+    grid-template-columns: 60px repeat(5, 1fr);
+    border: 1px solid #dee2e6;
+    background: #fff;
+    position: relative;
+    font-size: 13px;
+}
+.griglia-intestazione {
+    background: var(--verde-chiaro);
+    font-weight: bold;
+    text-align: center;
+    padding: 8px 4px;
+    border-bottom: 2px solid var(--verde-primario);
+    border-left: 1px solid #dee2e6;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+.griglia-intestazione.colonna-ora {
+    background: #fff;
+    border-left: none;
+}
+.colonna-ore {
+    position: relative;
+    border-right: 1px solid #dee2e6;
+}
+.etichetta-ora {
+    position: absolute;
+    left: 0; right: 0;
+    text-align: right;
+    padding-right: 6px;
+    color: #888;
+    font-size: 11px;
+    transform: translateY(-50%);
+}
+.colonna-campo {
+    position: relative;
+    border-left: 1px solid #dee2e6;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        #f3f3f3 0,
+        #f3f3f3 1px,
+        transparent 1px,
+        transparent 48px
+    );
+}
+.cella-vuota-click {
+    position: absolute;
+    left: 0; right: 0;
+    cursor: pointer;
+}
+.cella-vuota-click:hover {
+    background-color: var(--verde-chiaro);
+    opacity: 0.6;
+}
+.blocco-prenotazione {
+    position: absolute;
+    left: 3px; right: 3px;
+    background-color: var(--verde-primario);
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px 6px;
+    font-size: 11px;
+    line-height: 1.3;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 2;
+}
+.blocco-prenotazione:hover { 
+    background-color: var(--verde-chiaro) !important;
+    color: var(--verde-scuro) !important;}
+.blocco-prenotazione.blocco-vuoto { background-color: #888; }
+.blocco-prenotazione .blocco-orario { font-weight: bold; display: block; }
+.blocco-prenotazione .blocco-note {
+    display: block;
+    font-style: italic;
+    opacity: 0.85;
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.solo-mobile { display: none; }
+@media (max-width: 767px) {
+    .solo-desktop { display: none; }
+    .solo-mobile { display: inline; }
+}
+
+
+/* ============================================
+   FORM PRENOTAZIONE (pages/prenotazione_form.php)
+   ============================================ */
+.riga-ricerca-giocatore { margin-bottom: 10px; }
+
+
+/* ============================================
+   NAVBAR PUBBLICA (ui/components/header.php)
+   ============================================ */
+.navbar-pubblica {
+    background-color: var(--verde-primario);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.navbar-brand-pubblica {
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.3px;
+}
+
+.nav-link-pubblica {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+    display: inline-block;
+}
+.nav-link-pubblica:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.nav-link-pubblica.attivo { background: rgba(255,255,255,0.18); color: #fff; font-weight: 600; }
+
+.navbar-pubblica .navbar-toggler { border-color: rgba(255,255,255,0.4); }
+.navbar-pubblica .navbar-toggler-icon { filter: invert(1); }
+
+.btn-nav-login {
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.7);
+    padding: 6px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.15s, border-color 0.15s;
+    display: inline-block;
+}
+.btn-nav-login:hover { background: rgba(255,255,255,0.12); border-color: #fff; color: #fff; }
+
+.btn-nav-registrati {
+    background: #fff;
+    color: var(--verde-primario);
+    padding: 6px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: background 0.15s;
+    display: inline-block;
+}
+.btn-nav-registrati:hover { background: var(--verde-chiaro); color: var(--verde-scuro); }
+
+@media (max-width: 991px) {
+    .btn-nav-login,
+    .btn-nav-registrati {
+        display: block;
+        margin-top: 8px;
+        text-align: center;
+    }
+}
+
+
+/* ============================================
+   HERO SECTION (index.php) - immagine in background
+   ============================================ */
+.sezione-pubblica { flex: 1; }
+
+.hero-pubblica-bg {
+    position: relative;
+    min-height: 85vh;
+    background-image: url('/gestionale_padel/img/hero-section.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(27, 67, 50, 0.65);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    padding: 60px 0;
+}
+
+.hero-titolo { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 16px; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+.hero-sottotitolo { font-size: 1.3rem; opacity: 0.92; margin-bottom: 36px; text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
+
+.btn-hero-primario {
+    background-color: #fff;
+    color: var(--verde-primario);
+    font-weight: 700;
+    padding: 13px 30px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    transition: background 0.15s, color 0.15s;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-hero-primario:hover { background-color: var(--verde-chiaro); color: var(--verde-scuro); border-color: var(--verde-chiaro); }
+
+.btn-hero-secondario {
+    background-color: transparent;
+    color: #fff;
+    font-weight: 600;
+    padding: 13px 30px;
+    border-radius: 8px;
+    border: 2px solid rgba(255,255,255,0.7);
+    transition: background 0.15s, border-color 0.15s;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-hero-secondario:hover { background-color: rgba(255,255,255,0.15); border-color: #fff; color: #fff; }
+
+@media (max-width: 767px) {
+    .hero-pubblica-bg { min-height: 60vh; }
+    .hero-titolo { font-size: 2.2rem; }
+    .btn-hero-primario, .btn-hero-secondario { width: 100%; text-align: center; }
+}
+
+
+/* ============================================
+   SEZIONE INFO (index.php)
+   ============================================ */
+.sezione-info { background: var(--verde-chiaro); }
+.info-card { padding: 28px 20px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); height: 100%; }
+.info-icona { font-size: 2rem; color: var(--verde-medio); }
+
+
+/* ============================================
+   LEZIONI (lezioni.php)
+   ============================================ */
+.card-lezione {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+}
+.card-lezione:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.13); }
+.card-lezione-img { height: 200px; object-fit: cover; }
+.prezzo-lezione { color: var(--verde-medio); font-size: 1.15rem; }
+
+
+/* ============================================
+   CALENDARIO PUBBLICO (prenota.php)
+   ============================================ */
+.calendario-pubblica-wrapper { max-width: 800px; margin: 0 auto; }
+.table-calendario-pubblica thead th { background-color: var(--verde-primario); color: #fff; font-weight: 600; border-color: var(--verde-scuro); }
+.fascia-col { min-width: 130px; }
+.fascia-label-pubblica { font-weight: 600; color: var(--verde-scuro); white-space: nowrap; background: var(--verde-chiaro); }
+.slot-libero { display: inline-block; padding: 4px 12px; border-radius: 20px; background-color: #d1fae5; color: #065f46; font-size: 13px; font-weight: 600; }
+.slot-occupato { display: inline-block; padding: 4px 12px; border-radius: 20px; background-color: #fee2e2; color: #991b1b; font-size: 13px; font-weight: 600; }
+.card-contatto { border: 2px solid var(--verde-chiaro); border-radius: 12px; background: #fff; }
+@media (max-width: 767px) { .table-calendario-pubblica { font-size: 12px; } }
+
+
+/* ============================================
+   FOOTER PUBBLICO (ui/components/footer.php)
+   ============================================ */
+.footer-pubblica { background-color: var(--verde-primario); color: #fff; padding: 28px 0 20px; margin-top: auto; }
+.footer-link { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; transition: color 0.15s; }
+.footer-link:hover { color: #fff; }
+.footer-divider { border-color: rgba(255,255,255,0.15); margin: 16px 0 12px; }
+
+
+/* ============================================
+   AUTH (ui/page/login.php, register.php)
+   ============================================ */
+.sezione-auth {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    padding: 48px 0;
+    background: var(--verde-chiaro);
+}
+.card-auth { border: none; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); background: #fff; }
+.card-auth h3 { color: var(--verde-primario); font-weight: 700; }
+.btn-auth { background-color: var(--verde-primario); color: #fff; border: none; padding: 11px; border-radius: 8px; font-weight: 600; font-size: 15px; transition: background 0.15s; }
+.btn-auth:hover { background-color: var(--verde-scuro); color: #fff; }
+.link-auth { color: var(--verde-medio); font-weight: 600; }
+.link-auth:hover { color: var(--verde-primario); }
